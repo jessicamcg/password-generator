@@ -28,7 +28,7 @@ function generatePassword() {
   var possiblePassword = [];
   var length = window.prompt('Length of password: ');
   
-  while (length < 8) {
+  while (length < 8 || length > 128) {
     length = window.prompt('Password must be at least 8 characters long: ');
   };
 
@@ -37,7 +37,6 @@ function generatePassword() {
   var checkupper = window.confirm('Do you want to include uppercase letters? ');
   var checknums = window.confirm('Do you want to include numbers? ');
 
-  
   if (checkspchar) {
     possiblePassword = possiblePassword.concat(spchar);
   };
@@ -54,18 +53,15 @@ function generatePassword() {
     possiblePassword = possiblePassword.concat(nums);
   };
   
-  // doesnt work yet?
-  if (possiblePassword == []) {
+  if (possiblePassword.length == 0) {
     window.alert('Password must include some characters....');
-  };
-
-  console.log(possiblePassword)
-
-  var result;
-  for ( var i = 0; i < length; i++ ) {
-    result = result + possiblePassword[Math.floor(Math.random() * possiblePassword.length)];
+    return 'Try again';
+  } else {
+    var result = '';
+    for ( var i = 0; i < length; i++ ) {
+      result = result + possiblePassword[Math.floor(Math.random() * possiblePassword.length)];
     }
-  return result;
-
+    return result;
+  };
 };
 
