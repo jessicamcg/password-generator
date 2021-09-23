@@ -7,14 +7,10 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
 
 // my code
 
@@ -30,6 +26,10 @@ function generatePassword() {
   
   while (length < 8 || length > 128) {
     length = window.prompt('Password must be at least 8 characters long and less than 128: ');
+  };
+
+  if (Number.isInteger(length) === false) {
+    length = window.prompt('Password length must be a number: ')
   };
 
   var checkspchar = window.confirm('Do you want to include special characters? ');
