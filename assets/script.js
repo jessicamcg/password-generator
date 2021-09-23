@@ -28,8 +28,8 @@ function generatePassword() {
     length = window.prompt('Password must be at least 8 characters long and less than 128: ');
   };
 
-  if (Number.isInteger(length) === false) {
-    length = window.prompt('Password length must be a number: ')
+  while (Number.isInteger(length) === false) {
+    length = parseInt(window.prompt('Password length must be a number: '));
   };
 
   var checkspchar = window.confirm('Do you want to include special characters? ');
