@@ -29,7 +29,7 @@ function generatePassword() {
   var length = window.prompt('Length of password: ');
   
   while (length < 8 || length > 128) {
-    length = window.prompt('Password must be at least 8 characters long: ');
+    length = window.prompt('Password must be at least 8 characters long and less than 128: ');
   };
 
   var checkspchar = window.confirm('Do you want to include special characters? ');
@@ -55,7 +55,7 @@ function generatePassword() {
   
   if (possiblePassword.length == 0) {
     window.alert('Password must include some characters....');
-    return 'Try again';
+    return 'No Criteria selected. Try again';
   } else {
     var result = '';
     for ( var i = 0; i < length; i++ ) {
